@@ -100,7 +100,6 @@
     background:#ffbfc0;
   }
 
-  /* Shared panel base */
   .panel{
     max-width:700px;
     margin:0 auto;
@@ -130,7 +129,6 @@
     color:#6b3d3d;
   }
 
-  /* Shades grid */
   .shades-grid{
     margin-top:12px;
     display:grid;
@@ -155,10 +153,8 @@
     opacity:.8;
   }
 
-  /* Music player panel tweaks */
   .music-player audio{width:100%;max-width:100%;margin-top:8px;}
 
-  /* Trailer iframe */
   .movie-trailer iframe{
     width:100%;
     height:300px;
@@ -167,7 +163,6 @@
     border-radius:12px;
   }
 
-  /* Stickers */
   .sticker{
     position:absolute;
     font-size:36px;
@@ -193,13 +188,11 @@
 </style>
 </head>
 <body>
-  <!-- Floating circles -->
   <div class="circle c1"></div>
   <div class="circle c2"></div>
   <div class="circle c3"></div>
   <div class="circle c4"></div>
 
-  <!-- Stickers -->
   <div class="sticker one">🌸</div>
   <div class="sticker two">⭐</div>
   <div class="sticker three">💖</div>
@@ -209,7 +202,6 @@
     <h1>🌸 My Favorite Things</h1>
 
     <div class="grid">
-      <!-- FAVORITE COLOR CARD -->
       <div class="card">
         <div class="icon">💜</div>
         <div class="title">Color: Pink</div>
@@ -221,30 +213,26 @@
         </button>
       </div>
 
-      <!-- FAVORITE MUSIC CARD -->
       <div class="card">
         <div class="icon">🎶</div>
         <div class="title">Music</div>
         <div class="desc">
           Music speaks to my soul. I love listening to ENHYPEN — especially their song <em>"Shout Out"</em> which makes me feel strong, confident, and heard.
         </div>
-        <!-- TIP: change src if your MP3 filename/folder is different -->
         <button class="btn js-panel-btn"
                 data-panel="music-panel"
-                data-src="media/shout-out.mp3"
+                data-src="shout-out.mp3"
                 data-label='ENHYPEN – "Shout Out"'>
           ▶ Play "Shout Out"
         </button>
       </div>
 
-      <!-- FAVORITE SHOWS CARD -->
       <div class="card">
         <div class="icon">📺</div>
         <div class="title">Movies/Series</div>
         <div class="desc">
           I enjoy watching K-dramas, idol shows, and anything that makes me feel connected and inspired — especially when my favorite groups are involved!
         </div>
-        <!-- TRUE BEAUTY OFFICIAL TRAILER -->
         <button class="btn js-panel-btn"
                 data-panel="trailer-panel"
                 data-trailer="https://www.youtube.com/embed/BhP1eYQ5Pxk">
@@ -253,8 +241,6 @@
       </div>
     </div>
 
-    <!-- PANELS BELOW GRID -->
-    <!-- Pink Shades Panel -->
     <div id="shades-panel" class="panel shades-panel">
       <h2>🎨 Pink Shades</h2>
       <p>Click a shade to copy its color code!</p>
@@ -280,13 +266,11 @@
       </div>
     </div>
 
-    <!-- Music Panel -->
     <div id="music-panel" class="panel music-player">
       <h2 id="music-player-label">Now Playing</h2>
       <audio id="music-player" controls></audio>
     </div>
 
-    <!-- Trailer Panel -->
     <div id="trailer-panel" class="panel movie-trailer">
       <h2>True Beauty Trailer</h2>
       <div class="trailer-wrapper" style="position:relative;padding-top:56.25%;">
@@ -317,10 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideAllPanels(){
     Object.values(panels).forEach(p => p.style.display = 'none');
     buttons.forEach(b => b.classList.remove('active'));
-    // stop music if playing
     if (!player.paused) player.pause();
-    // optional clear trailer: comment out if you want video to keep buffering
-    // trailerIframe.src = '';
   }
 
   function togglePanel(panelId, btn){
@@ -348,19 +329,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let src = btn.dataset.src || '';
         const label = btn.dataset.label || 'Now Playing';
         if(src){
-          src = src.replace(/\\/g,'/'); // just in case
+          src = src.replace(/\\/g,'/'); 
           if(!player.src.endsWith(src)){
             player.src = src;
           }
         }
         playerLabel.textContent = label;
-        // auto-play after visible
         setTimeout(() => {
           player.play().catch(()=>{});
         }, 200);
       }
 
-      // TRAILER
       if(panelId === 'trailer-panel'){
         const trailerSrc = btn.dataset.trailer;
         if(trailerSrc && trailerIframe.src !== trailerSrc){
@@ -372,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Copy shade color */
   document.querySelectorAll('.shade').forEach(shade => {
     shade.addEventListener('click', () => {
       const code = shade.dataset.code;
