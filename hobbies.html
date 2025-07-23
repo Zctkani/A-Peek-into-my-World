@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Hobbies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #4d2c3d;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating pastel circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      z-index: 0;
+      animation: floaty 15s infinite ease-in-out;
+    }
+    .c1 { width: 140px; height:140px; background:#fcd5ce; top:10%; left:60%; animation-delay: 0s; }
+    .c2 { width: 90px; height:90px; background:#d8f3dc; top:70%; left:10%; animation-delay: 3s; }
+    .c3 { width: 160px; height:160px; background:#e0bbf3; bottom:5%; right:15%; animation-delay: 6s; }
+    .c4 { width: 70px; height:70px; background:#ffe4b2; top:30%; right:20%; animation-delay: 9s; }
+
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background-color: #ffffffee;
+      padding: 45px 40px;
+      border-radius: 22px;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.06);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(25px) scale(.98);
+      animation: cardRise 1s ease-out 0.3s forwards;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
+    }
+
+    @keyframes cardRise {
+      from { opacity: 0; transform: translateY(25px) scale(.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .title-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #ce6d48;
+      font-weight: 700;
+      font-family: 'Kalam', cursive;
+      margin: 0;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 15px 0 25px;
+      color: #5a2a46;
+    }
+
+    .hobby-list {
+      text-align: left;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .hobby-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .hobby-list li {
+      background: #ffe8cc;
+      margin: 10px 0;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      color: #7a3d2c;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hobby-list li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Cute stickers around the card */
+    .sticker {
+      position: absolute;
+      font-size: 36px;
+      border-radius: 50%;
+      padding: 10px;
+      user-select: none;
+      opacity: 0.95;
+    }
+
+    .one { top: 30px; left: 30px; background: #ffd6d6; }
+    .two { top: 30px; right: 30px; background: #d8f3dc; }
+    .three { bottom: 30px; left: 40px; background: #e0bbf3; }
+    .four { bottom: 30px; right: 40px; background: #fef9c7; }
+    .five { top: 50%; left: -20px; transform: translateY(-50%); background: #ffc8dd; }
+    .six { top: 50%; right: -20px; transform: translateY(-50%); background: #c1f0f6; }
+
+    @media (max-width: 600px) {
+      .container { padding: 30px 20px; }
+      h1 { font-size: 28px; }
+      p, .hobby-list li { font-size: 14px; }
+      .title-icon { font-size: 24px; }
+      .sticker { font-size: 28px; padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating pastel circles -->
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+  <div class="circle c4"></div>
+
+  <!-- Stickers -->
+  <div class="sticker one">🌷</div>
+  <div class="sticker two">🎨</div>
+  <div class="sticker three">💖</div>
+  <div class="sticker four">✨</div>
+  <div class="sticker five">🎶</div>
+  <div class="sticker six">⭐</div>
+
+  <div class="container">
+    <div class="title-wrapper">
+      <span class="title-icon">🌷</span>
+      <h1>My Hobbies</h1>
+    </div>
+    <p>
+      When I have time to myself, I love doing things that keep me inspired,  
+      relaxed, and connected to the things and people I enjoy most.
+    </p>
+
+    <div class="hobby-list">
+      <ul>
+        <li>📺 Watching K-Dramas and my favorite idols</li>
+        <li>🎵 Listening to K-pop (especially Enhypen)</li>
+        <li>📷 Taking and editing photos</li>
+        <li>🧶 Crocheting flowers, keychains, and clothes</li>
+        <li>🌼 Enjoying peaceful solo time or quiet outdoor walks</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

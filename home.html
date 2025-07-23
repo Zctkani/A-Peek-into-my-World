@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --clr-bg1: #ffe0cc;
+  --clr-bg2: #ffd6b8;
+  --clr-bg3: #fff0e1;
+  --clr-bg4: #ffe8d2;
+  --clr-primary: #ce6d48;
+  --clr-text: #4b1f38;
+  --clr-soft: #5a3d2b;
+  --clr-card-bg: rgba(255,255,255,0.92);
+  --radius: 22px;
+}
+
+body {
+  margin: 0;
+  padding: 50px 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, var(--clr-bg1), var(--clr-bg2), var(--clr-bg3), var(--clr-bg4));
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: var(--clr-text);
+  text-align: center;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
+.c1 { width: 120px; height: 120px; background: #fcd5ce; top: 15%; left: 10%; }
+.c2 { width: 80px; height: 80px; background: #d8f3dc; bottom: 10%; right: 15%; }
+.c3 { width: 100px; height: 100px; background: #e0bbf3; top: 60%; left: 70%; }
+
+.ribbon {
+  background: #ffd9b3;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #7a3d2c;
+  display: inline-block;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--clr-card-bg);
+  padding: 40px 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 6px;
+  background: linear-gradient(135deg, #ffb6b9, #ffd9b3);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  color: var(--clr-primary);
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--clr-soft);
+  margin-bottom: 25px;
+}
+
+.highlight {
+  background: #ffe8cc;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  color: var(--clr-soft);
+  display: inline-block;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.quote {
+  margin-top: 25px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--clr-soft);
+}
+</style>
+</head>
+<body>
+  <!-- Floating circles -->
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+
+  <div class="container">
+    <img src="C:\Users\Marc Jonas\Desktop\HTML\Activity11_Cañedo\melanie.jpg" alt="My Photo" class="profile-pic">
+    <h1>Hey there, welcome! 🌼</h1>
+    <p>
+      I'm so glad you're here! This is my cozy corner on the web where I share my thoughts,
+      my style, and the little joys I love the most.
+    </p>
+    <div class="highlight">Curious? Click “About Me” on the side to explore more! ☕✨</div>
+    <div class="quote">“Small steps every day lead to big changes.”</div>
+  </div>
+</body>
+</html>

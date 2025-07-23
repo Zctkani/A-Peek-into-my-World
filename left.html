@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>About Me - Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 60px 20px 80px; /* Added bottom padding for trash bin */
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #5a3d2b;
+    text-align: center;
+    min-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h2 {
+    font-size: 34px;
+    color: #d07b52;
+    font-family: 'Kalam', cursive;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  li {
+    margin: 14px 0;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #4b2a2a;
+    background: #fff9f4;
+    border-radius: 18px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: 0.3s;
+  }
+
+  a:hover {
+    background: #ffe3d4;
+    transform: scale(1.05);
+  }
+
+  .sticker {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+    z-index: 0;
+  }
+
+  .one { top: 15px; left: 25px; transform: rotate(-8deg); }
+  .two { top: 30px; right: 30px; transform: rotate(10deg); }
+  .three { bottom: 140px; left: 35px; transform: rotate(-6deg); }
+  .four { bottom: 120px; right: 40px; transform: rotate(8deg); }
+
+  .footer {
+    margin-top: 50px;
+    font-size: 12px;
+    color: #a06d4a;
+  }
+</style>
+</head>
+<body>
+  <img class="sticker one" src="https://cdn-icons-png.flaticon.com/512/9513/9513677.png" alt="Flower">
+  <img class="sticker two" src="https://cdn-icons-png.flaticon.com/512/9513/9513699.png" alt="Heart">
+  <img class="sticker three" src="https://cdn-icons-png.flaticon.com/512/9513/9513665.png" alt="Leaf">
+  <img class="sticker four" src="https://cdn-icons-png.flaticon.com/512/9513/9513682.png" alt="Star">
+
+  <h2>About Me ✨</h2>
+  <ul>
+    <li><a href="home.html" target="rightframe">🏠 Welcome</a></li>
+    <li><a href="about_me.html" target="rightframe">🙋 Who I Am</a></li>
+    <li><a href="personality.html" target="rightframe">💡 My Personality</a></li>
+    <li><a href="interests.html" target="rightframe">🎨 My Interests</a></li>
+    <li><a href="hobbies.html" target="rightframe">🌸 My Hobbies</a></li>
+    <li><a href="favorites.html" target="rightframe">❤️ Things I Love</a></li>
+    <li><a href="dreams.html" target="rightframe">🌟 My Dreams</a></li>
+    <li><a href="contact.html" target="rightframe">📩 How to Reach Me</a></li>
+  </ul>
+
+  <div class="footer">
+    © 2025 | Melanie's Space
+  </div>
+</body>
+</html>

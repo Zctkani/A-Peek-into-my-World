@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 50px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #4d2c3d;
+      position: relative;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .sticker {
+      position: absolute;
+      font-size: 42px;
+      border-radius: 50%;
+      padding: 12px;
+      opacity: 0.95;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .s1 { top: 20px; left: 20px; background: #ffd6d6; }
+    .s2 { top: 20px; right: 20px; background: #d8f3dc; }
+    .s3 { bottom: 20px; left: 25px; background: #e0bbf3; }
+    .s4 { bottom: 20px; right: 25px; background: #ffe4b2; }
+    .s5 { top: 45%; left: -15px; background: #ffc8dd; }
+    .s6 { top: 45%; right: -15px; background: #c1f0f6; }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: #ffffffee;
+      padding: 36px 28px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 0.9s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      0% {opacity:0; transform:translateY(40px);}
+      100%{opacity:1; transform:translateY(0);}
+    }
+
+    h1 {
+      font-size: 38px;
+      color: #b35077;
+      font-family: 'Kalam', cursive;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-inline { font-size: 36px; }
+
+    .info {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #5a2a46;
+      text-align: justify;
+      margin-top: 10px;
+    }
+
+    .info p {
+      margin: 12px 0;
+    }
+
+    .info strong {
+      color: #7e3b6c;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 25px; /* tighter spacing */
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      font-size: 14px; /* smaller text */
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.3s, color 0.3s;
+      color: #b35077;
+    }
+
+    .social-icons a i {
+      font-size: 18px; /* smaller icon */
+      color: #f48fb1;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      color: #a03c65;
+    }
+
+    .social-icons a:hover i {
+      color: #ec407a;
+    }
+
+    @media (max-width: 600px) {
+      .social-icons {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Big Stickers -->
+  <div class="sticker s1">🌸</div>
+  <div class="sticker s2">🌿</div>
+  <div class="sticker s3">💖</div>
+  <div class="sticker s4">⭐</div>
+  <div class="sticker s5">✨</div>
+  <div class="sticker s6">💬</div>
+
+  <div class="container">
+    <h1><span class="icon-inline">✉️</span> Contact Me</h1>
+    <div class="info">
+      <p><strong>Name:</strong> Melanie G. Cañedo</p>
+      <p><strong>Address:</strong> Imbiao, Roxas, Isabela</p>
+      <p><strong>Email:</strong> canedomelanie85@gmail.com</p>
+      <p><strong>Contact:</strong> 0995 592 6626</p>
+    </div>
+
+    <!-- Social Media Icons - Smaller, One Line -->
+    <div class="social-icons">
+      <a href="https://www.facebook.com/melanie.canedo.2024/" target="_blank">
+        <i class="fab fa-facebook-f"></i> Melanie Cañedo
+      </a>
+      <a href="https://www.instagram.com/dude_itz.melai/" target="_blank">
+        <i class="fab fa-instagram"></i> @dude_itz.melai
+      </a>
+      <a href="https://www.tiktok.com/@canedo26_melanie/" target="_blank">
+        <i class="fab fa-tiktok"></i> @canedo26_melanie
+      </a>
+      <a href="https://open.spotify.com/user/31ejdf45fkrdruyjzykbsizyn4ke?si=sB9rjtdfRRewtNAAx8s4-g" target="_blank">
+        <i class="fab fa-spotify"></i> Melanie's Spotify
+      </a>
+    </div>
+  </div>
+</body>
+</html>

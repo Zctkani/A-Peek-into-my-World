@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Favorites</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color: #4d2c3d;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+  }
+  @keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+
+  /* Floating pastel circles */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    z-index: 0;
+    animation: floaty 15s infinite ease-in-out;
+  }
+  .c1{width:140px;height:140px;background:#fcd5ce;top:10%;left:60%;animation-delay:0s;}
+  .c2{width:90px;height:90px;background:#d8f3dc;top:70%;left:10%;animation-delay:3s;}
+  .c3{width:160px;height:160px;background:#e0bbf3;bottom:5%;right:15%;animation-delay:6s;}
+  .c4{width:70px;height:70px;background:#ffe4b2;top:30%;right:20%;animation-delay:9s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);} }
+
+  .container{
+    max-width:950px;
+    margin:auto;
+    position:relative;
+    z-index:1;
+  }
+
+  h1{
+    font-size:36px;
+    color:#b35077;
+    font-family:'Kalam',cursive;
+    margin-bottom:30px;
+  }
+
+  /* Cards grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:32px;
+  }
+  .card{
+    background:#ffffffee;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    text-align:left;
+    transition:transform .3s ease,box-shadow .3s ease;
+    position:relative;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 35px rgba(0,0,0,.1);
+  }
+
+  .icon{font-size:34px;margin-bottom:10px;}
+  .title{font-size:20px;color:#914750;margin-bottom:8px;font-weight:bold;}
+  .desc{font-size:15px;color:#5a2a46;line-height:1.6;}
+
+  /* Buttons */
+  .btn{
+    margin-top:10px;
+    padding:8px 16px;
+    font-size:14px;
+    font-family:inherit;
+    background:#ffd6d6;
+    color:#7a3d2c;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:transform .2s,box-shadow .2s;
+    display:inline-block;
+  }
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+  }
+  .btn.active{
+    background:#ffbfc0;
+  }
+
+  /* Shared panel base */
+  .panel{
+    max-width:700px;
+    margin:0 auto;
+    margin-top:30px;
+    padding:20px;
+    background:#fff7ed;
+    border:1px solid #ffd6b8;
+    border-radius:16px;
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+    text-align:center;
+    display:none;
+    animation:fadeSlide .4s ease;
+  }
+  @keyframes fadeSlide{
+    0%{opacity:0;transform:translateY(20px);}
+    100%{opacity:1;transform:translateY(0);}
+  }
+  .panel h2{
+    margin:0 0 10px;
+    font-family:'Kalam',cursive;
+    color:#b35077;
+    font-size:22px;
+  }
+  .panel p{
+    font-size:14px;
+    margin:0 0 16px;
+    color:#6b3d3d;
+  }
+
+  /* Shades grid */
+  .shades-grid{
+    margin-top:12px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+    gap:10px;
+  }
+  .shade{
+    border-radius:10px;
+    padding:16px 8px;
+    text-align:center;
+    font-size:12px;
+    color:#4d2c3d;
+    box-shadow:0 2px 6px rgba(0,0,0,.05);
+    transition:transform .2s;
+    cursor:pointer;
+  }
+  .shade:hover{transform:scale(1.05);}
+  .shade-code{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    opacity:.8;
+  }
+
+  /* Music player panel tweaks */
+  .music-player audio{width:100%;max-width:100%;margin-top:8px;}
+
+  /* Trailer iframe */
+  .movie-trailer iframe{
+    width:100%;
+    height:300px;
+    max-width:100%;
+    border:none;
+    border-radius:12px;
+  }
+
+  /* Stickers */
+  .sticker{
+    position:absolute;
+    font-size:36px;
+    border-radius:50%;
+    padding:10px;
+    opacity:.95;
+  }
+  .one{top:20px;left:20px;background:#ffd6d6;}
+  .two{top:30px;right:25px;background:#fcd5ce;}
+  .three{bottom:35px;left:25px;background:#e0bbf3;}
+  .four{bottom:30px;right:20px;background:#ffe4b2;}
+
+  @media(max-width:600px){
+    h1{font-size:28px;}
+    .title{font-size:16px;}
+    .desc{font-size:14px;}
+    .icon{font-size:26px;}
+    .sticker{font-size:26px;padding:8px;}
+    .panel h2{font-size:18px;}
+    .shade{font-size:11px;padding:14px 6px;}
+    .movie-trailer iframe{height:210px;}
+  }
+</style>
+</head>
+<body>
+  <!-- Floating circles -->
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+  <div class="circle c4"></div>
+
+  <!-- Stickers -->
+  <div class="sticker one">🌸</div>
+  <div class="sticker two">⭐</div>
+  <div class="sticker three">💖</div>
+  <div class="sticker four">✨</div>
+
+  <div class="container">
+    <h1>🌸 My Favorite Things</h1>
+
+    <div class="grid">
+      <!-- FAVORITE COLOR CARD -->
+      <div class="card">
+        <div class="icon">💜</div>
+        <div class="title">Color: Pink</div>
+        <div class="desc">
+          Pink has always been my favorite color. It feels soft, cheerful, and comforting — it reflects my personality and the warmth I want to bring to others.
+        </div>
+        <button class="btn js-panel-btn" data-panel="shades-panel">
+          🎨 Show Pink Shades
+        </button>
+      </div>
+
+      <!-- FAVORITE MUSIC CARD -->
+      <div class="card">
+        <div class="icon">🎶</div>
+        <div class="title">Music</div>
+        <div class="desc">
+          Music speaks to my soul. I love listening to ENHYPEN — especially their song <em>"Shout Out"</em> which makes me feel strong, confident, and heard.
+        </div>
+        <!-- TIP: change src if your MP3 filename/folder is different -->
+        <button class="btn js-panel-btn"
+                data-panel="music-panel"
+                data-src="media/shout-out.mp3"
+                data-label='ENHYPEN – "Shout Out"'>
+          ▶ Play "Shout Out"
+        </button>
+      </div>
+
+      <!-- FAVORITE SHOWS CARD -->
+      <div class="card">
+        <div class="icon">📺</div>
+        <div class="title">Movies/Series</div>
+        <div class="desc">
+          I enjoy watching K-dramas, idol shows, and anything that makes me feel connected and inspired — especially when my favorite groups are involved!
+        </div>
+        <!-- TRUE BEAUTY OFFICIAL TRAILER -->
+        <button class="btn js-panel-btn"
+                data-panel="trailer-panel"
+                data-trailer="https://www.youtube.com/embed/BhP1eYQ5Pxk">
+          ▶ Watch “True Beauty” Trailer
+        </button>
+      </div>
+    </div>
+
+    <!-- PANELS BELOW GRID -->
+    <!-- Pink Shades Panel -->
+    <div id="shades-panel" class="panel shades-panel">
+      <h2>🎨 Pink Shades</h2>
+      <p>Click a shade to copy its color code!</p>
+      <div class="shades-grid">
+        <div class="shade" style="background:#ffc0cb" data-code="#FFC0CB">
+          Light Pink <span class="shade-code">#FFC0CB</span>
+        </div>
+        <div class="shade" style="background:#ffb6c1" data-code="#FFB6C1">
+          Sweet Pink <span class="shade-code">#FFB6C1</span>
+        </div>
+        <div class="shade" style="background:#ff99c8" data-code="#FF99C8">
+          Candy <span class="shade-code">#FF99C8</span>
+        </div>
+        <div class="shade" style="background:#ff8fab" data-code="#FF8FAB">
+          Blossom <span class="shade-code">#FF8FAB</span>
+        </div>
+        <div class="shade" style="background:#ff6f91" data-code="#FF6F91">
+          Bubblegum <span class="shade-code">#FF6F91</span>
+        </div>
+        <div class="shade" style="background:#ff4d8d" data-code="#FF4D8D">
+          Pop Pink <span class="shade-code">#FF4D8D</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Music Panel -->
+    <div id="music-panel" class="panel music-player">
+      <h2 id="music-player-label">Now Playing</h2>
+      <audio id="music-player" controls></audio>
+    </div>
+
+    <!-- Trailer Panel -->
+    <div id="trailer-panel" class="panel movie-trailer">
+      <h2>True Beauty Trailer</h2>
+      <div class="trailer-wrapper" style="position:relative;padding-top:56.25%;">
+        <iframe id="trailer-iframe"
+          src=""
+          title="Trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.js-panel-btn');
+  const panels = {
+    'shades-panel': document.getElementById('shades-panel'),
+    'music-panel' : document.getElementById('music-panel'),
+    'trailer-panel': document.getElementById('trailer-panel')
+  };
+  const player = document.getElementById('music-player');
+  const playerLabel = document.getElementById('music-player-label');
+  const trailerIframe = document.getElementById('trailer-iframe');
+
+  let activePanelId = null;
+
+  function hideAllPanels(){
+    Object.values(panels).forEach(p => p.style.display = 'none');
+    buttons.forEach(b => b.classList.remove('active'));
+    // stop music if playing
+    if (!player.paused) player.pause();
+    // optional clear trailer: comment out if you want video to keep buffering
+    // trailerIframe.src = '';
+  }
+
+  function togglePanel(panelId, btn){
+    if(activePanelId === panelId){
+      hideAllPanels();
+      activePanelId = null;
+      return;
+    }
+    hideAllPanels();
+    const panel = panels[panelId];
+    if(!panel) return;
+    panel.style.display = 'block';
+    btn.classList.add('active');
+    activePanelId = panelId;
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panelId = btn.dataset.panel;
+      if(!panelId) return;
+
+      // MUSIC
+      if(panelId === 'music-panel'){
+        let src = btn.dataset.src || '';
+        const label = btn.dataset.label || 'Now Playing';
+        if(src){
+          src = src.replace(/\\/g,'/'); // just in case
+          if(!player.src.endsWith(src)){
+            player.src = src;
+          }
+        }
+        playerLabel.textContent = label;
+        // auto-play after visible
+        setTimeout(() => {
+          player.play().catch(()=>{});
+        }, 200);
+      }
+
+      // TRAILER
+      if(panelId === 'trailer-panel'){
+        const trailerSrc = btn.dataset.trailer;
+        if(trailerSrc && trailerIframe.src !== trailerSrc){
+          trailerIframe.src = trailerSrc;
+        }
+      }
+
+      togglePanel(panelId, btn);
+    });
+  });
+
+  /* Copy shade color */
+  document.querySelectorAll('.shade').forEach(shade => {
+    shade.addEventListener('click', () => {
+      const code = shade.dataset.code;
+      if(!code) return;
+      navigator.clipboard?.writeText(code).then(()=>{
+        const original = shade.innerHTML;
+        shade.innerHTML = 'Copied! <span class="shade-code">'+code+'</span>';
+        setTimeout(()=>{shade.innerHTML = original;},1000);
+      }).catch(()=>{
+        alert(code);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

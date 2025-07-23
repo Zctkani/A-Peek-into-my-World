@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #3e1f2d;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Container Card */
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background-color: #ffffffee;
+      padding: 45px 40px;
+      border-radius: 22px;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.06);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(25px) scale(.98);
+      animation: cardRise 1s ease-out 0.3s forwards;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
+    }
+
+    @keyframes cardRise {
+      from { opacity: 0; transform: translateY(25px) scale(.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Title with sticker */
+    .title-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .title-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #d97b5d;
+      margin: 0;
+      font-family: 'Kalam', cursive;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      color: #4a2e36;
+      text-align: center;
+    }
+
+    blockquote {
+      border-left: 4px solid #d97b5d;
+      margin: 30px 0;
+      padding: 14px 20px;
+      background: #fff7ed;
+      font-style: italic;
+      color: #5b3c47;
+      border-radius: 8px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      text-align: center;
+      color: #8b5c66;
+    }
+
+    .sticker {
+      position: absolute;
+      font-size: 36px;
+      opacity: 0.95;
+      border-radius: 50%;
+      padding: 10px;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .one   { top: 20px; left: 20px; background: #ffd6d6; }
+    .two   { top: 40px; right: 25px; background: #fcd5ce; }
+    .three { bottom: 35px; left: 25px; background: #e0bbf3; }
+    .four  { bottom: 30px; right: 20px; background: #ffe4b2; }
+    .five  { top: 50%; left: -15px; transform: translateY(-50%); background: #d8f3dc; }
+
+    @media (max-width: 600px) {
+      body { padding: 30px 15px; }
+      .container { padding: 30px 20px; }
+      h1 { font-size: 28px; }
+      p, blockquote { font-size: 14px; }
+      .title-icon { font-size: 26px; }
+      .sticker { font-size: 28px; padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sticker one">🌸</div>
+  <div class="sticker two">⭐</div>
+  <div class="sticker three">💖</div>
+  <div class="sticker four">✨</div>
+  <div class="sticker five">🌿</div>
+
+  <div class="container">
+    <div class="title-wrapper">
+      <span class="title-icon">🌸</span>
+      <h1>About Me</h1>
+    </div>
+
+    <p>Hi! I’m Melanie — a student who loves finding joy in quiet moments and expressing myself through little creative things. I believe in kindness, staying true to who I am, and growing one day at a time.</p>
+    <p>Whether it’s journaling, music, or stargazing, everything I do reflects how I see the world. This is my small corner to share that side of me with you.</p>
+
+    <blockquote>“Be gentle with yourself, you're doing the best you can.” 🌷</blockquote>
+
+    <div class="footer">© 2025 Melanie Cañedo</div>
+  </div>
+</body>
+</html>

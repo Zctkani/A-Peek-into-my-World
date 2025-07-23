@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>My Personality</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ffe0cc, #ffd6b8, #fff0e1, #ffe8d2);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color: #5a2a46;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  @keyframes gradientBG {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Decorative floating pastel circles */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    z-index: 0;
+    animation: floaty 15s infinite ease-in-out;
+  }
+  .c1 { width: 140px; height:140px; background:#fcd5ce; top:10%; left:60%; animation-delay: 0s; }
+  .c2 { width: 90px; height:90px; background:#d8f3dc; top:70%; left:10%; animation-delay: 3s; }
+  .c3 { width: 160px; height:160px; background:#e0bbf3; bottom:5%; right:15%; animation-delay: 6s; }
+  .c4 { width: 70px; height:70px; background:#ffe4b2; top:30%; right:20%; animation-delay: 9s; }
+
+  @keyframes floaty {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Main content card */
+  .container {
+    max-width: 750px;
+    margin: auto;
+    background-color: #ffffffee;
+    padding: 45px 40px;
+    border-radius: 22px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px) scale(.98);
+    animation: cardRise 1s ease-out 0.3s forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .container:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
+  }
+
+  @keyframes cardRise {
+    from { opacity: 0; transform: translateY(30px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Title wrapper: left sticker + centered text */
+  .title-wrapper {
+    display: inline-flex;            /* shrink to content so centering works nicely */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .title-icon {
+    font-size: 32px;
+    line-height: 1;
+    /* no background */
+  }
+
+  h1 {
+    font-size: 34px;
+    color: #d97b5d;
+    margin: 0;
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: #4a2e36;
+    text-align: center;
+  }
+
+  .traits {
+    margin-top: 25px;
+    text-align: left;
+  }
+
+  .traits ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .traits li {
+    background-color: #ffe8cc;
+    margin: 10px 0;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #7a3d2c;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Background Stickers (corners, with pastel circles) */
+  .sticker {
+    position: absolute;
+    font-size: 36px;
+    opacity: 0.95;
+    border-radius: 50%;
+    padding: 10px;
+    user-select: none;
+    z-index: 0;
+  }
+  .one   { top: 15px; left: 20px; background: #ffd6d6; }
+  .two   { top: 45px; right: 25px; background: #fcd5ce; }
+  .three { bottom: 35px; left: 30px; background: #d8f3dc;}
+  .four  { bottom: 40px; right: 30px; background: #ffe4b2;}
+  .five  { top: 50%; left: -15px; transform: translateY(-50%); background:#e0bbf3;}
+  .six   { top: 60%; right: -20px; transform: translateY(-50%); background:#f9e0e0;}
+
+  @media (max-width: 600px) {
+    body { padding: 30px 15px; }
+    .container { padding: 30px 20px; }
+    h1 { font-size: 28px; }
+    .title-icon { font-size: 26px; }
+    p, .traits li { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+  <!-- Decorative pastel shapes -->
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+  <div class="circle c4"></div>
+
+  <!-- Background Stickers -->
+  <div class="sticker one">🌸</div>
+  <div class="sticker two">🦋</div>
+  <div class="sticker three">🍃</div>
+  <div class="sticker four">☀️</div>
+  <div class="sticker five">✨</div>
+  <div class="sticker six">💖</div>
+
+  <div class="container">
+    <div class="title-wrapper">
+      <span class="title-icon">🌸</span>
+      <h1>My Personality</h1>
+    </div>
+
+    <p>
+      I would describe myself as a blend of quiet strength and gentle curiosity.  
+      I'm reflective, thoughtful, and I value kindness in everything I do.
+    </p>
+
+    <p>
+      I might not always be the loudest in the room, but I notice things,  
+      appreciate the little details, and always try to understand others.
+    </p>
+
+    <div class="traits">
+      <ul>
+        <li>✨ Calm and observant</li>
+        <li>🍃 Caring and loyal</li>
+        <li>📚 Curious and open to learning</li>
+        <li>🎨 Creative thinker</li>
+        <li>🌙 Introverted but expressive in my own way</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
